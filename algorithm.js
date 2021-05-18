@@ -63,5 +63,3 @@ function checkYuGiOh(num) {
 		return theList;
 	}
 }
-
-checkYuGiOh("cow is moo");
