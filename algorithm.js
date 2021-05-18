@@ -29,31 +29,39 @@ function convertFahrToCelsius(tempValue) {
 //The YuGiOh function
 function checkYuGiOh(num) {
 	const theList = [];
-	for (i = 1; i <= num; i++) {
-		if (i % 2 === 0) {
-			if (i % 3 === 0) {
-				if (i % 5 === 0) {
-					theList.push("yu-gi-oh");
+	if (isNaN(num)) {
+		let error = `Invalid parameter: ${JSON.stringify(num)}.`;
+		console.log(error);
+		return error;
+	} else {
+		for (i = 1; i <= num; i++) {
+			if (i % 2 === 0) {
+				if (i % 3 === 0) {
+					if (i % 5 === 0) {
+						theList.push("yu-gi-oh");
+					} else {
+						theList.push("yu-gi");
+					}
+				} else if (i % 5 === 0) {
+					theList.push("yu-oh");
 				} else {
-					theList.push("yu-gi");
+					theList.push("yu");
+				}
+			} else if (i % 3 === 0) {
+				if (i % 5 === 0) {
+					theList.push("gi-oh");
+				} else {
+					theList.push("gi");
 				}
 			} else if (i % 5 === 0) {
-				theList.push("yu-oh");
+				theList.push("oh");
 			} else {
-				theList.push("yu");
+				theList.push(i);
 			}
-		} else if (i % 3 === 0) {
-			if (i % 5 === 0) {
-				theList.push("gi-oh");
-			} else {
-				theList.push("gi");
-			}
-		} else if (i % 5 === 0) {
-			theList.push("oh");
-		} else {
-			theList.push(i);
 		}
+		console.log(theList);
+		return theList;
 	}
-	console.log(theList);
-	return theList;
 }
+
+checkYuGiOh("cow is moo");
